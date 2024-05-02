@@ -1,0 +1,20 @@
+1)Create a 31324
+2)open in terminal
+    touch input.txt:- hello hello pict pict
+    touch word_count.scala 
+3)word_count.scala:-
+
+val data=sc.textFile("input.txt")
+data.collect
+val splitdata=data.flatMap(line => line.split(" "))
+splitdata.collect
+val mapdata=splitdata.map(word => (word,1))
+mapdata.collect
+val reducedata=mapdata.reduceByKey(_+_)
+reducedata.collect
+
+4)in 31324 open terminal
+
+$SPARK_HOME/bin/spark-shell    or spark-shell
+:load word_count.scala
+

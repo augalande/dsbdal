@@ -1,0 +1,41 @@
+1) Start Hadoop:-
+   cd hadoop
+   cd sbin
+   start-dfs.sh
+   start-yarn.sh
+   jps    [Check for 6 nodes started]
+   localhost:9870->utilites->file directory
+
+2) Make a folder 31324:-
+   Open terminal ->touch input.txt -> place input
+   Put the given java code
+   Open this folder in Eclipse Java 
+   Create new java project->WordCount->Java 1.8->Configure jre->compiler->1.8 select
+   uncheck module file
+   next
+   Create
+   Go to src->right click to make new class->WordCount->Next->next
+   Paste code of .java file here in this WordCount.java->save
+   Right click on WordCount Project ->configure build path->classpath->add External jars->
+   ->go to hadoop installation folder->share->hadoop->link all jars of mapreduce folder and common folder
+   Apply and close
+   Erros vanish
+   Right click WordCount Project ->export as jar->give jar location as 31324->link main class as WordCount.java
+   abc.jar is created in 31324
+
+3)Open terminal in 31324
+    Ensure hadoop is on
+    hadoop fs -mkdir /24
+    hadoop fs -mkdir /24/input
+    hadoop fs -put  input.txt /24/input
+    hadoop jar abc.jar /24/input /24/output
+    hadoop dfs -cat /24/output/*
+
+    Gui:- 
+    same for input
+    output->click on part-r-000000 ->click on head the file
+
+4)to close hadoop
+cd hadoop
+cd sbin
+stop-all.sh
